@@ -216,6 +216,12 @@ struct LayerBufferFlags {
 
       uint32_t hdr : 1;             //!< This flag shall be set by the client to indicate that the
                                     //!< the content is HDR.
+
+      uint32_t hbm_reg : 1;         //!< This flag shall be set by the client to indicate that the
+                                    //!< the content is HBM.
+
+      uint32_t hbm : 1;             //!< This flag shall be set by the client to indicate that the
+                                    //!< the content is HBM.
     };
 
     uint32_t flags = 0;             //!< For initialization purpose only.

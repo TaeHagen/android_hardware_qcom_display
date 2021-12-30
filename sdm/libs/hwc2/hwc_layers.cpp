@@ -253,6 +253,13 @@ HWC2::Error HWCLayer::SetLayerBuffer(buffer_handle_t buffer, int32_t acquire_fen
   layer_buffer->flags.secure = secure;
   layer_buffer->flags.secure_camera = secure_camera;
   layer_buffer->flags.secure_display = secure_display;
+  if (z_ > 0xfa1) {
+    layer_buffer->flags.hbm = true;
+    layer_buffer->flags.video = true;
+  } else {
+    layer_buffer->flags.hbm = false;
+    layer_buffer->flags.video = false;
+  }
 
   if (layer_buffer->acquire_fence_fd >= 0) {
     ::close(layer_buffer->acquire_fence_fd);
